@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro de Medicamentos</title>
+	<link href="css/estilo.css" rel="stylesheet" />
+</h:head>
+<h:body>
+
+	
+	<h:link outcome="listMedicamentos">Medicamentos</h:link>
+	<h1>
+			<small>Novos Medicamentos</small>
+		</h1>
+		<h:form>
+		<h:panelGroup rendered="#{not empty medicamentosMB.medicamento.idMedicamento}">
+		<div>
+					<h:outputLabel value="Código: " />
+					<h:inputText readonly="true" value="#{medicamentosMB.medicamento.idMedicamento}" />
+				</div>
+			</h:panelGroup>
+			<h:inputHidden value="#{medicamentosMB.medicamento.idMedicamento}" />
+			<div>
+				<h:outputLabel value="Nome: " />
+				<h:inputText value="#{medicamentosMB.medicamento.nome}" />
+			</div>
+			<div>
+				<h:outputLabel value="Dosagem: " />
+				<h:inputText value="#{medicamentosMB.medicamento.dosagem}" />
+			</div>
+			<div>
+				<h:outputLabel value="Intervalo:  " />
+				<h:inputText value="#{medicamentosMB.medicamento.intervalo}" />
+			</div>
+			<div>
+				<h:outputLabel value="Duração:  " />
+				<h:inputText value="#{medicamentosMB.medicamento.duracao}" />
+			</div>
+			
+			
+			<button type="reset">Restaurar</button>
+			<h:commandButton value="Salvar" action="#{medicamentosMB.salvar()}" />
+		</h:form>
+
+</h:body>
+</html>
